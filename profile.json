@@ -1,0 +1,46 @@
+{
+    "config": {
+        "profile_Name": "Robin1",
+        "last_Loaded": "",
+        "ip": "10.52.189.233"
+    },
+    "keys": {
+        "0": {
+            "actions": [
+                {
+                "type": "avo",
+                "action": "flash",
+                "event": "flashPlayback",
+                "vars": [4]
+                }
+            ]
+
+        },
+        "1": {
+            "actions": [
+                {
+                "type": "avo",
+                "action": "down",
+                "event": "playbackAtPercentage",
+                "vars": [5,1]
+                },
+                {
+                "type": "avo",
+                "action": "up",
+                "event": "playbackAtPercentage",
+                "vars": [5,0]
+                }
+            ]
+        },
+        "2": {
+            "actions": [
+                {
+                "type": "avo",
+                "action": "flash",
+                "event": "tapTempo",
+                "vars": [1]
+                }
+            ]
+        }
+    }
+}
