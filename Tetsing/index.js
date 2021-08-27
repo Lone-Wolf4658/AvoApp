@@ -22,6 +22,7 @@ myDeck.on('down', (keyIndex) => {
     });
     
 })
+
 myDeck.on('up', (keyIndex) => {
     const key = profile.keys[keyIndex]
     if (key === undefined) return;

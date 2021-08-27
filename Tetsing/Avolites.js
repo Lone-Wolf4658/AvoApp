@@ -6,17 +6,36 @@ module.exports = class Avolites {
         this.dryFire = false;
         this.ip = ip;
         this.timeout = 100;
+        this.bpm1;
+        this.bpmDiff = []
     }
     
+
+
     tapTempo(userNR){
-        if (userNR !== undefined){
-            if (typeof userNR === 'number' && userNR > 0){
-                const cmd = `script/2/Macros/Run?macroId=Avolites.Macros.Copy`
+        const prevTime = this.bpm1
+        const newTime = new Date
+        this.bpm1 = newTime
+        var difference = Math.abs(prevTime-newTime)
+        var bpm = Math.floor(60000 / difference)
+        if (!bpm) return
+        this.bpmDiff.unshift(bpm)
+        var ar1 = this.bpmDiff
+        const sum = (ar1[0] + ar1[1] + ar1[2])
+        var newBpm = sum/3
+        // 1000 ms = 1sec
+        // 1min = 60 sec = 60000 ms
+        
+    
+        if (userNR !== undefined && newBpm !== undefined){
+            if (typeof userNR === 'number' && userNR > 0 && typeof newBpm === 'number' && newBpm >= 0){
+                const cmd = `script/2/Masters/SetSpeed?handle_titanId=${userNR}&value=${newBpm}`
                 this.sendCommand(cmd)
-                
             }
         }
     }
+
+
     flashPlayback(userNR){
         if (userNR !== undefined){
             if (typeof userNR === 'number' && userNR > 0){
@@ -68,5 +87,8 @@ module.exports = class Avolites {
         });
     } 
 
+    sumArr(arr){
+        return arr => arr.reduce((a,b) => a + b, 0)
+    }
 
 } 
