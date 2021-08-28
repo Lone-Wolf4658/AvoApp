@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Avo-App</title>
+    <link rel="stylesheet" href="index.css">
+    
+    <script defer src="render.js"></script>
+  </head>
+  <body>
+    <h1>Hey! Welcome to the Avo-App</h1>
+    
+    <div class="consoleConfig">
+      <p id="ipDisplay">--Console Status Unkown--</p>
+      <form id="ipform" onsubmit="ipSubmit(event); return false;">
+        <label for="ip">Console IP</label>
+        <input id="ip" type="text" placeholder="IP" minlength="7" maxlength="19" pattern="^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$">
+        <input type="submit" value="Submit">
+        <button id="get-ip" onclick="getLocalIp(event)">GetLocalIp</button>
+      </form>
+    </div>
+
+  </body>
+</html>
